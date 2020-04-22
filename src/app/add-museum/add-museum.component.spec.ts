@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MuseumListComponent } from './museum-list.component';
+import { AddMuseumComponent } from './add-museum.component';
 
-describe('MuseumListComponent', () => {
-  let component: MuseumListComponent;
-  let fixture: ComponentFixture<MuseumListComponent>;
+describe('AddMuseumComponent', () => {
+  let component: AddMuseumComponent;
+  let fixture: ComponentFixture<AddMuseumComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MuseumListComponent ]
+      declarations: [ AddMuseumComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MuseumListComponent);
+    fixture = TestBed.createComponent(AddMuseumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
