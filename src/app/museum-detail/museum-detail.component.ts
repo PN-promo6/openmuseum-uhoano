@@ -18,6 +18,7 @@ export class MuseumDetailComponent implements OnInit {
   museumRef: string;
   museumFax: string;
   museumNocturne: string;
+
   constructor(
     private museumListService: MuseumListService,
     private route: ActivatedRoute
