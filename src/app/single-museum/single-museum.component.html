@@ -8,7 +8,10 @@
       <p class="card-text">{{phone}}</p>
       <p class="card-text">{{webSite}}</p>
       <p class="card-text"> {{openInfo}}</p>
-      <a routerLink="museum/:ref_musee" class="btn btn-primary">View details</a>
+      <p class="card-text"> {{museumFax}}</p>
+
+      <a [routerLink]="['museum/',museumRef]" class="btn btn-primary">View details</a>
+
     </div>
   </div>
 </div>
