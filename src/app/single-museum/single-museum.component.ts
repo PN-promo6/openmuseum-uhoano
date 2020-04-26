@@ -1,27 +1,26 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { MuseumListService } from "../services/museumList.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { MuseumService } from '../services/openmuseum.service'
 
 @Component({
-  selector: "app-single-museum",
-  templateUrl: "./single-museum.component.html",
-  styleUrls: ["./single-museum.component.css"],
+  selector: 'app-single-museum',
+  templateUrl: './single-museum.component.html',
+  styleUrls: ['./single-museum.component.css']
 })
+
 export class SingleMuseumComponent implements OnInit {
-  museums: any[];
 
-  @Input() museumName: string;
-  @Input() adress: string;
-  @Input() zipCode: string;
+  @Input() reference: string;
+  @Input() name: string;
+  @Input() opening: string;
+  @Input() zip: string;
   @Input() city: string;
-  @Input() phone: string;
-  @Input() webSite: string;
-  @Input() openInfo: string;
-  @Input() museumRef: string;
-  @Input() museumFax: string;
+  @Input() telephone: string;
+  @Input() adress: string;
+  @Input() website: string;
 
-  constructor(private museumListService: MuseumListService) {}
+  constructor(private museumService: MuseumService) { }
 
   ngOnInit() {
-    this.museums = this.museumListService.museums;
   }
+
 }

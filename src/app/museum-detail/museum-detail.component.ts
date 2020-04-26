@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { MuseumListService } from "../services/museumList.service";
+import { Component, OnInit } from "@angular/core";
+import { MuseumService } from "../services/openmuseum.service";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -8,36 +8,38 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./museum-detail.component.css"],
 })
 export class MuseumDetailComponent implements OnInit {
-  museumName: string;
-  adress: string;
-  zipCode: string;
-  city: string;
-  phone: string;
-  webSite: string;
-  openInfo: string;
   museumRef: string;
-  museumFax: string;
-  museumNocturne: string;
-
+  museumTitle: string;
+  opening: string;
+  adress: string;
+  city: string;
+  zip: string;
+  telephone: string;
+  website: string;
+  fax: string;
+  museumLocation: number[];
+  museumPopUpName: string;
+  museumPopUpAdres: string;
   constructor(
-    private museumListService: MuseumListService,
+    private museumService: MuseumService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    const museumRef = this.route.snapshot.params["museumRef"];
-    this.museumName = this.museumListService.getMuseumById(
+    const museumRef = this.route.snapshot.params["reference"];
+    this.museumTitle = this.museumService.getMuseumByRef(museumRef).name;
+    this.opening = this.museumService.getMuseumByRef(museumRef).opening;
+    this.adress = this.museumService.getMuseumByRef(museumRef).adress;
+    this.zip = this.museumService.getMuseumByRef(museumRef).zip;
+    this.city = this.museumService.getMuseumByRef(museumRef).city;
+    this.fax = this.museumService.getMuseumByRef(museumRef).fax;
+    this.telephone = this.museumService.getMuseumByRef(museumRef).telephone;
+    this.website = this.museumService.getMuseumByRef(museumRef).website;
+    this.museumLocation = this.museumService.getMuseumByRef(
       museumRef
-    ).nom_du_musee;
-
-    this.adress = this.museumListService.getMuseumById(museumRef).adr;
-
-    this.zipCode = this.museumListService.getMuseumById(museumRef).cp;
-
-    this.museumFax = this.museumListService.getMuseumById(museumRef).fax;
-
-    this.museumNocturne = this.museumListService.getMuseumById(
-      museumRef
-    ).jours_nocturnes;
+    ).cardinals;
+    this.museumPopUpName = this.museumService.getMuseumByRef(museumRef).name;
+    this.museumPopUpAdres =
+      this.museumService.getMuseumByRef(museumRef).adress + this.museumTitle;
   }
 }
