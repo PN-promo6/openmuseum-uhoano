@@ -12,7 +12,8 @@ import * as L from "leaflet";
 export class MapComponent implements AfterViewInit {
   @Input() museumLocation: number[];
   @Input() museumPopUpName: string;
-  @Input() museumPopUpAdres: string;
+  @Input() museumPopUpAddress: string;
+
   private map: any;
   constructor(private museumService: MuseumService) {}
 
@@ -32,7 +33,15 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
     const marker = L.marker(this.museumLocation);
     marker.addTo(this.map);
-    marker.bindPopup(this.museumPopUpName + this.museumPopUpAdres).openPopup();
+    marker
+      .bindPopup(
+        "<p>" +
+          this.museumPopUpName +
+          "</p> <p>" +
+          this.museumPopUpAddress +
+          "</p>"
+      )
+      .openPopup();
   }
 
   ngAfterViewInit(): void {

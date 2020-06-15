@@ -5,9 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <app-single-museum class="col-4" *ngFor="let museum of museums" [reference]="museum.reference" [name]="museum.name"
-      [opening]="museum.opening" [zip]="museum.zip" [city]="museum.city" [telephone]="museum.telephone"
-      [adress]="museum.adress" [website]="museum.website">
+    <app-single-museum class="col-4" *ngFor="let museum of museums" [museum]="museum">
     </app-single-museum>
   </div>
 </section>
+
+<!-- [reference]=" museum.reference" [opening]="museum.opening" [zip]="museum.zip" [telephone]="museum.telephone"
+      [adress]="museum.adress" [website]="museum.website" -->
